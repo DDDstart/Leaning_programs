@@ -79,3 +79,39 @@ elif f == 'круг':
     r = int(input())
     s = 3.14 * (r ** 2)
     print(s)
+#
+#
+'''Напишите программу, которая получает на вход три целых числа,
+по одному числу в строке, и выводит на консоль в три строки
+сначала максимальное, потом минимальное, после чего оставшееся число.
+На ввод могут подаваться и повторяющиеся числа.'''
+a, b, c = int(input()), int(input()), int(input())
+if c <= b <= a:
+    print(a, '\n', c, '\n', b)
+elif a <= b <= c:
+    print(c, '\n', a, '\n', b)
+elif b <= a <= c:
+    print(c, '\n', b, '\n', a)
+elif c <= a <= b:
+    print(b, '\n', c, '\n', a)
+elif a <= c <= b:
+    print(b, '\n', a, '\n', c)
+elif b <= c <= a:
+    print(a, '\n', b, '\n', c)
+#
+'''То же самое, только на логических операторах'''
+a, b, c = int(input()), int(input()), int(input())
+if c <= b and b <= a:
+    print(a, '\n', c, '\n', b)
+elif a <= b and b <= c:
+    print(c, '\n', a, '\n', b)
+elif b <= a and a <= c:
+    print(c, '\n', b, '\n', a)
+elif c <= a and a <= b:
+    print(b, '\n', c, '\n', a)
+elif a <= c and c <= b:
+    print(b, '\n', a, '\n', c)
+elif b <= c and c <= a:
+    print(a, '\n', b, '\n', c)
+#
+#
