@@ -71,5 +71,5 @@ b=c.count('C')+c.count('G')
 print((b/len(c))*100)
 
 #
-# Рещение задачи в одну строку
+# Решение задачи в одну строку
 [print((n.count('c') + n.count('g')) / len(n) * 100) for n in [input().lower()]]
