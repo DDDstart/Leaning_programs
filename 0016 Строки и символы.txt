@@ -132,9 +132,19 @@ print(s[-1:-10:-2])
 # Напишите программу, которая считывает строку, кодирует её предложенным алгоритмом и выводит закодированную
 # последовательность на стандартный вывод. Кодирование должно учитывать регистр символов.
 print('Введите последовательность символов для кодирования:')
-simbol = input()
-for i in simbol:
-    cnt = simbol.count()
-    print(cnt)
-
-
+stroka = input()
+start = 0
+end = 1
+cnt = 1
+j = len(stroka)
+for i in range(start, j+1):
+    simbol = stroka[start:end]
+    start += 1
+    end += 1
+    simbollast = stroka[start:end]
+    if simbol == simbollast:
+        cnt += 1
+        continue
+    print(simbol, end='')
+    print(cnt, end='')
+    cnt = 1
