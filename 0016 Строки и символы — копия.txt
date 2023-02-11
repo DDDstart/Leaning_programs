@@ -82,7 +82,7 @@ print (dna[:4]) # ATTC
 print (dna[4:]) # GGAGCT
 print (dna[-4:]) # GGAGCT от -4 символа до конца строки
 print (dna[1:-1]) # TTCGGAGC
-print (dna[1:-1:2]) # TTCGGAGC с шагом 2
+print (dna[1:-1:2]) # TCGG с шагом 2
 print (dna[::-1]) # TCGAGGCTTA символы в обратном порядке
 
 #

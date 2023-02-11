@@ -1,0 +1,71 @@
+# Простой вывод списка
+students = ['Ivan', 'Masha', 'Sasha']
+for student in students:
+    print('Hello, ' + student + '!')
+
+# Операция (+) сложения со списками
+students = ['Ivan', 'Masha', 'Sasha']
+teachers = ['Oleg', 'Alex']
+print(students + teachers)
+
+# Операция (*) умножения со списками
+students = ['Ivan', 'Masha', 'Sasha']
+teachers = ['Oleg', 'Alex']
+print([0,1] * 4)
+
+# Замена в списке
+students = ['Ivan', 'Masha', 'Sasha']
+print(students)
+students[1] = 'Oleg'
+print(students)
+
+# Добавление элементов в список
+students = ['Ivan', 'Masha', 'Sasha']
+students += ['Olga']
+students += 'Olga'
+print(students)
+# Результат: ['Ivan', 'Masha', 'Sasha', 'Olga', 'O', 'l', 'g', 'a']
+
+# Добавление элементов в список (append)
+students = ['Ivan', 'Masha', 'Sasha']
+print(students)
+students.append('Olga')
+print(students)
+students += ['Olga']
+print(students)
+students += ['Boris', 'Sergey']
+print(students)
+# Обнуление списка
+students = []
+print(students)
+
+# Вставка элементов в список (insert)
+students = ['Ivan', 'Masha', 'Sasha']
+print(students)
+students.insert(1, 'Olga')
+print(students)
+
+# Удаление элементов из списка (remove, del)
+students = ['Ivan', 'Masha', 'Sasha']
+print(students)
+students.remove('Sasha') # Удаляется только первое вхождение
+print(students)
+del students[0]
+print(students)
+
+# Проверка наличия элемента в списке
+students = ['Ivan', 'Masha', 'Sasha']
+if 'Ivan' in students:
+    print('Ivan в списке есть')
+if 'Ann' not in students: # Можно написать: "if not 'Ann' in students"
+    print('Ann в списке нет')
+
+# Проверка наличия и нахождение номера элемента в списке
+students = ['Ivan', 'Masha', 'Sasha']
+ind = students.index('Sasha')
+print(ind)
+ind = students.index('Ann')
+print(ind) # Будет ошибка: "'Ann' is not in list"
+
+
+
