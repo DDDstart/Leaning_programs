@@ -26,7 +26,7 @@ students += 'Olga'
 print(students)
 # Результат: ['Ivan', 'Masha', 'Sasha', 'Olga', 'O', 'l', 'g', 'a']
 
-# Добавление элементов в список (append)
+# Добавление элементов в список (.append)
 students = ['Ivan', 'Masha', 'Sasha']
 print(students)
 students.append('Olga')
@@ -39,13 +39,13 @@ print(students)
 students = []
 print(students)
 
-# Вставка элементов в список (insert)
+# Вставка элементов в список (.insert)
 students = ['Ivan', 'Masha', 'Sasha']
 print(students)
 students.insert(1, 'Olga')
 print(students)
 
-# Удаление элементов из списка (remove, del)
+# Удаление элементов из списка (.remove, del)
 students = ['Ivan', 'Masha', 'Sasha']
 print(students)
 students.remove('Sasha') # Удаляется только первое вхождение
@@ -64,8 +64,74 @@ if 'Ann' not in students: # Можно написать: "if not 'Ann' in studen
 students = ['Ivan', 'Masha', 'Sasha']
 ind = students.index('Sasha')
 print(ind)
-ind = students.index('Ann')
-print(ind) # Будет ошибка: "'Ann' is not in list"
+#ind = students.index('Ann')
+#print(ind) # Будет ошибка: "'Ann' is not in list"
 
+# Сортировка списка (sorted, min, max, .sort)
+students = ['Sasha', 'Masha', 'Ivan']
+ordered_students = sorted(students)
+print(ordered_students)
+print(min(students))
+print(max(students))
+students = ['Sasha', 'Masha', 'Ivan']
+students.sort()
+print(students)
 
+# Выведение списка в обратном порядке (.reverse, reversed, [::-1])
+students = ['Sasha', 'Masha', 'Ivan']
+students.reverse()
+''' Метод reverse перестраивает список, но сам ничего не возвращает.
+Для вывода нужно применить метод к списку. А затем уже в print помещать сам измененный список'''
+print(students)
+###
+students = ['Sasha', 'Masha', 'Ivan']
+obr_spisok = list(reversed(students)) # reversed(): без list() не жизнеспособна
+print(obr_spisok)
+###
+students = ['Sasha', 'Masha', 'Ivan']
+print(students[::-1]) # Выводит список в обратном порядке
+###
+obr_spisok = students[::-1]
+print(obr_spisok)
+
+# Присвоение списков
+a = [1, 'A', 2]
+b = a
+print(a, b)
+a[0] = 42
+print(a, b)
+b[2] = 30
+print(a, b)
+
+# Присвоение и изменение списков
+a = [1, 2, 3]
+b = a
+print(a, b)
+# значения списка b?
+a[1] = 10
+print(a, b)
+# значения списка b?
+b[0] = 20
+print(a, b)
+# значения списка a?
+a = [5, 6]
+print(a, b)
+# Результат:
+# [1, 2, 3] [1, 2, 3]
+# [1, 10, 3] [1, 10, 3]
+# [20, 10, 3] [20, 10, 3]
+# [5, 6] [20, 10, 3]
+
+# Генерация списков
+a = [0] * 5
+print(a)
+###
+a = [0 for i in range(5)]
+print(a)
+###
+a = [i * i for i in range(5)]
+print(a)
+# Ввод списка через пробел
+a = [str (i) for i in input().split()]
+print(a)
 
