@@ -128,6 +128,9 @@ print(a)
 ###
 a = [0 for i in range(5)]
 print(a)
+# Заполнение списка числами от 0 до 4
+a = [i for i in range(5)]
+print(a)
 # Заполнение списка квадратами чисел
 a = [i * i for i in range(5)]
 print(a)
