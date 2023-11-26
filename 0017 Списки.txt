@@ -355,3 +355,25 @@ print(spisok [: chislo])
 которая выводит все позиции,на которых встречается число x в переданном списке lst.
 Позиции нумеруются с нуля, если число x не встречается в списке, вывести строку "Отсутствует"
 (без кавычек, с большой буквы). Позиции должны быть выведены в одну строку, по возрастанию абсолютного значения.'''
+lst = [int (i) for i in input().split()]
+count = 0
+x = int(input())
+for i in range(len(lst)):
+    if lst [count] == x:
+        print(count, end=' ')
+    count += 1
+if x not in lst:
+   print('Отсутствует')
+   
+# Другое решение без использования счетчика
+lst = [int (i) for i in input().split()]
+x = int(input())
+for i in range(len(lst)):
+    if lst [i] == x:
+        print(i, end=' ')
+if x not in lst:
+   print('Отсутствует')
+   
+# Другое решение в две строки
+l, n = [int(i) for i in input().split()], int(input())
+print(*[x for x in range(len(l)) if l[x]==n] if n in l else ["Отсутствует"])   
