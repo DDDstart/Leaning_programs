@@ -71,3 +71,24 @@ def f(x):
         return -x / 2
     if x > 2:
         return (x - 2)**2 + 1
+
+# Решение в две строки:
+def f(x):
+    return float(x<-2 and 1-(x+2)**2 or 2<x and (x-2)**2+1 or -2<=x<=2 and -x/2)
+
+# Решение с помощью if, elif, else:
+def f(x):
+    if x <= -2:
+        return 1 - (x + 2) ** 2
+    elif x <= 2:
+        return -x / 2
+    else:
+        return (x - 2) ** 2 + 1
+
+# Или так:
+def f(x):
+    if x<=-2:
+        return -(x+1)*(x+3)
+    elif 2<x:
+        return (x-2)*(x-2)+1
+    return -x/2
