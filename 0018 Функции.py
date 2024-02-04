@@ -149,5 +149,3 @@ def modify_list(l):
         if x % 2 == 0:
             l.append(x//2)
         l.remove(x)
-
-# Другое решение:
