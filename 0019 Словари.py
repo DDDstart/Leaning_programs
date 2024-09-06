@@ -114,7 +114,6 @@ def update_dictionary(d, key, value):
 вывести получившуюся статистику. Программа должна считывать одну строку со стандартного ввода и выводить для каждого
 уникального слова в этой строке число его повторений (без учёта регистра) в формате "слово количество" (см. пример вывода).
 Порядок вывода слов может быть произвольным, каждое уникальное слово должно выводиться только один раз.
-
 Пример ввода: a aa abC aa ac abc bcd a
 Пример вывода:
 ac 1
@@ -123,3 +122,16 @@ abc 2
 bcd 1
 aa 2
 '''
+
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+predl = str(input('Введите предложение:')).lower()
+words = predl.split()
+result_list = list(words)
+sovpad = 0
+print(result_list)
+for i in range (len(result_list) - 1):
+   if result_list[i] == result_list[i + 1]:
+      sovpad += 1
+   print((result_list[i]), sovpad)
+   sovpad = 0
