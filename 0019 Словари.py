@@ -122,16 +122,19 @@ abc 2
 bcd 1
 aa 2
 '''
-
-#! /usr/bin/env python
+! /usr/bin/env python
 # -*- coding: utf-8 -*-
 predl = str(input('Введите предложение:')).lower()
 words = predl.split()
 result_list = list(words)
+newspisok = []
+countspisok = []
 sovpad = 0
-print(result_list)
-for i in range (len(result_list) - 1):
-   if result_list[i] == result_list[i + 1]:
-      sovpad += 1
-   print((result_list[i]), sovpad)
+for i in result_list:
+   sovpad = sum([1 for element in result_list if element == i])
+   if sovpad > 0 and i not in newspisok:
+      newspisok.append(i)
+      countspisok.append(sovpad)
    sovpad = 0
+for item_newspisok, item_countspisok in zip(newspisok, countspisok):
+    print(item_newspisok, item_countspisok)
