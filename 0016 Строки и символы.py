@@ -154,6 +154,24 @@ for i in range(start, j+1):
     cnt = 1
 
 #
+# Сделано с помощью ChatGPT:
+def encode_string(s):
+    if not s:
+        return ""
+    encoded_string = []
+    count = 1
+    for i in range(1, len(s)):
+        if s[i] == s[i - 1]:
+            count += 1
+        else:
+            encoded_string.append(s[i - 1] + str(count))
+            count = 1
+    encoded_string.append(s[-1] + str(count)) # Добавляем последнюю группу символов
+    return ''.join(encoded_string)
+input_string = input() # Чтение строки из ввода
+print(encode_string(input_string)) # Вывод результата
+
+#
 # Немного другое решение этой же задачи
 dna = input()                    # считываем строку
 print(dna[0],end='')             # выводим первый символ
