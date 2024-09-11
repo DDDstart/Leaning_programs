@@ -49,4 +49,22 @@ a3b4c2e10b1
 Sample Output:
 aaabbbbcceeeeeeeeeeb
 '''
-# Программа
+# Программа с использование ChatGPT
+def decode_string(encoded_string):
+    decoded_string = []
+    i = 0
+    while i < len(encoded_string):
+        char = encoded_string[i]  # Считываем символ
+        i += 1
+        count = "" # Считываем количество повторов
+        while i < len(encoded_string) and encoded_string[i].isdigit():
+            count += encoded_string[i]
+            i += 1
+        decoded_string.append(char * int(count)) # Добавляем символ, повторённый нужное количество раз, в итоговую строку
+    return ''.join(decoded_string)
+with open('dataset.txt', 'r') as input_file: # Чтение данных из файла
+    encoded_string = input_file.read().strip()
+decoded_string = decode_string(encoded_string) # Декодирование строки
+with open('output.txt', 'w') as output_file: # Запись результата в файл
+    output_file.write(decoded_string)
+print("Decoded string has been written to 'output.txt'.")
