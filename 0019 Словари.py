@@ -42,8 +42,8 @@ n = 'abc'
 print(n)
 s = set(n)
 print(s) # {a,b,c}
-a = list(s) # ['a', 'c', 'b']
-print(a)
+a = list(s)
+print(a) # ['a', 'c', 'b']
 
 '''Преобразование списка в множество'''
 n = ['abc','def','ghi']
