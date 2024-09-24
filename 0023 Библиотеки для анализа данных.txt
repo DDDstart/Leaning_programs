@@ -58,7 +58,7 @@ plot(x, y, 'r') # r - это красный цвет
 xlabel('x')
 ylabel('y')
 title('title')
-show() # строит графиков
+show() # строит графики
 
 
 
