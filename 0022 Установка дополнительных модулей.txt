@@ -67,3 +67,21 @@ while True: # Цикл, который последовательно будет
         break
     current_file = content # Если это не последний файл, берем имя следующего файла (содержимое текущего файла)
 
+# Другое решение:
+import requests
+url, name = 'https://stepik.org/media/attachments/course67/3.6.3/', '699991.txt'
+while name[:2] != 'We':
+    name = requests.get(url + name).text
+print(name)
+
+# Другое решение:
+import requests
+with open('dataset_3378_3.txt') as txt:
+    a = txt.readline().strip()
+print(a)
+a = str(requests.get(a).text)
+b = 'https://stepik.org/media/attachments/course67/3.6.3/'
+while 'we' not in a:
+    print(a)
+        a = requests.get(b + a).text
+print(a)
