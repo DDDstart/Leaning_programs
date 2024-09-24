@@ -1,0 +1,69 @@
+# Чтобы устанавливать модули python, не входящие в стандартные библиотеки, нужно воспользоваться командой 'pip'
+pip install requests
+
+#
+import requests
+r =requests.get('http://yandex.ru') # Простой GET-запрос
+print(r.text) # Вывод ответа от сервера
+
+# Так же можно передать запрос с параметрами:
+url = 'http://yandex.ru'
+par = {'key1': 'value1', 'key2': 'value2'}
+r =requests.get(url, params = par) # Передача параметров в запрос
+print(url.r) # Вывод сформированного url-адреса с учетом параметров GET-запроса
+
+#
+url = 'http://yandex.ru/cookies'
+cookies = {'cookies_are': 'working'}
+r =requests.get(url, cookies = cookies) # Отправка сформированных cookies на сервер
+print(r.text) # Вывод ответа от сервера
+
+#
+print(r.cookies['example_cookies_name']) # Использование cookies, полученных от сервера
+
+#
+'''Скачайте файл. В нём указан адрес другого файла, который нужно скачать с использованием модуля requests и посчитать число строк в нём.
+Используйте функцию get для получения файла (имеет смысл вызвать метод strip к передаваемому параметру, чтобы убрать пробельные символы по краям).
+После получения файла вы можете проверить результат, обратившись к полю text. Если результат работы скрипта не принимается, проверьте поле url
+на правильность. Для подсчёта количества строк разбейте текст с помощью метода splitlines. В поле ответа введите одно число или отправьте файл,
+одержащий одно число.'''
+# Решение с помощью ChatGPT:
+import requests
+with open('file.txt', 'r') as f: # Открываем файл с адресом другого файла
+    url = f.read().strip()  # Читаем URL и убираем пробелы по краям
+response = requests.get(url) # Скачиваем файл по URL
+if response.status_code == 200: # Проверяем успешность запроса
+    lines = response.text.splitlines() # Разбиваем содержимое на строки и считаем их количество
+    print(len(lines))
+else:
+    print(f"Ошибка загрузки файла, статус код: {response.status_code}")
+    
+# Другое решение:
+from requests import get
+with open('dataset.txt') as f:
+    url = f.readline().strip()
+text = get(url).text.splitlines()
+print(len(text))
+
+# Еще решение:
+import requests
+print(len(requests.get(open('dataset.txt').readline().strip()).text.splitlines()))
+
+#
+'''Имеется набор файлов, каждый из которых, кроме последнего, содержит имя следующего файла.
+Первое слово в тексте последнего файла: "We". Скачайте предложенный файл. В нём содержится ссылка на первый файл из этого набора.
+Все файлы располагаются в каталоге по адресу: https://stepik.org/media/attachments/course67/3.6.3/
+Загрузите содержимое ﻿последнего файла из набора, как ответ на это задание.'''
+#
+import requests
+base_url = "https://stepik.org/media/attachments/course67/3.6.3/" # Базовый URL каталога, где хранятся все файлы
+current_file = "file.txt" # Имя первого файла
+while True: # Цикл, который последовательно будет загружать каждый файл, пока не найдем последний
+    file_url = base_url + current_file # Формируем полный URL для текущего файла
+    response = requests.get(file_url) # Загружаем содержимое текущего файла
+    content = response.text.strip() # Получаем текст файла
+    if content.startswith("We"): # Проверяем, является ли это последний файл (начинается ли он с "We")
+        print(content)  # Выводим содержимое последнего файла
+        break
+    current_file = content # Если это не последний файл, берем имя следующего файла (содержимое текущего файла)
+
